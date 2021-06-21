@@ -18,20 +18,18 @@ namespace TencentCloud\Tem\V20201221\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateCosTokenV2请求参数结构体
+ * GenerateDownloadUrl请求参数结构体
  *
  * @method string getServiceId() 获取服务ID
  * @method void setServiceId(string $ServiceId) 设置服务ID
  * @method string getPkgName() 获取包名
  * @method void setPkgName(string $PkgName) 设置包名
- * @method integer getOptType() 获取optType 1上传  2查询
- * @method void setOptType(integer $OptType) 设置optType 1上传  2查询
+ * @method string getDeployVersion() 获取需要下载的包版本
+ * @method void setDeployVersion(string $DeployVersion) 设置需要下载的包版本
  * @method integer getSourceChannel() 获取来源 channel
  * @method void setSourceChannel(integer $SourceChannel) 设置来源 channel
- * @method string getTimeVersion() 获取充当deployVersion入参
- * @method void setTimeVersion(string $TimeVersion) 设置充当deployVersion入参
  */
-class CreateCosTokenV2Request extends AbstractModel
+class GenerateDownloadUrlRequest extends AbstractModel
 {
     /**
      * @var string 服务ID
@@ -44,9 +42,9 @@ class CreateCosTokenV2Request extends AbstractModel
     public $PkgName;
 
     /**
-     * @var integer optType 1上传  2查询
+     * @var string 需要下载的包版本
      */
-    public $OptType;
+    public $DeployVersion;
 
     /**
      * @var integer 来源 channel
@@ -54,16 +52,10 @@ class CreateCosTokenV2Request extends AbstractModel
     public $SourceChannel;
 
     /**
-     * @var string 充当deployVersion入参
-     */
-    public $TimeVersion;
-
-    /**
      * @param string $ServiceId 服务ID
      * @param string $PkgName 包名
-     * @param integer $OptType optType 1上传  2查询
+     * @param string $DeployVersion 需要下载的包版本
      * @param integer $SourceChannel 来源 channel
-     * @param string $TimeVersion 充当deployVersion入参
      */
     function __construct()
     {
@@ -86,16 +78,12 @@ class CreateCosTokenV2Request extends AbstractModel
             $this->PkgName = $param["PkgName"];
         }
 
-        if (array_key_exists("OptType",$param) and $param["OptType"] !== null) {
-            $this->OptType = $param["OptType"];
+        if (array_key_exists("DeployVersion",$param) and $param["DeployVersion"] !== null) {
+            $this->DeployVersion = $param["DeployVersion"];
         }
 
         if (array_key_exists("SourceChannel",$param) and $param["SourceChannel"] !== null) {
             $this->SourceChannel = $param["SourceChannel"];
-        }
-
-        if (array_key_exists("TimeVersion",$param) and $param["TimeVersion"] !== null) {
-            $this->TimeVersion = $param["TimeVersion"];
         }
     }
 }
